@@ -1,0 +1,109 @@
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	font-family:"微软雅黑";
+}
+html,body{
+	margin:0;
+	padding:0;
+	border:0;
+	height:100%;
+}
+a{
+	text-decoration:none;
+}
+a:focus{outline:none;}
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px white inset; }
+
+.sider{
+	width:450px;
+	height:100%;
+	margin:0 auto;
+	background:#B9E4FB;
+}
+.wrap{
+	position:absolute;
+	left:50%;
+	top:20%;
+	width:400px;
+	height:320px;
+	margin-left:-200px;
+	border:1px #dddddd solid;
+	border-radius:10px;
+	behavior: url(../js/PIE.htc); 
+}
+.wrap_register{
+	position:absolute;
+	left:50%;
+	top:20%;
+	width:400px;
+	height:400px;
+	margin-left:-200px;
+	border:1px #dddddd solid;
+	border-radius:10px;
+	behavior: url(../js/PIE.htc);
+}
+.shade{
+	width:100%;
+	height:60px;
+	line-height:60px;
+	text-align:center;
+	background:#EAEAEA;
+}
+.shade span{
+	color:#000000;
+	font-size:16px;
+	cursor:default;
+}
+.mainPanel{
+	width:100%;
+	height:260px;
+	background:#f8f8f8;
+}
+.mainPanel_register{
+	width:100%;
+	height:340px;
+	background:#f8f8f8;
+}
+.inputTitle{
+	padding-top:10px;
+	padding-left:30px;
+	color:#666666;
+}
+.input{
+	width:360px;
+	height:36px;
+	line-height:36px;
+	margin:5px auto;
+	background:#ffffff;
+	border:1px #cccccc solid;
+}
+.userInput,.passInput,.repassInput{
+	width:300px;
+	height:30px;
+	outline:none;
+}
+.inputLogo{
+	float:right;
+	cursor:pointer;
+}
+
+.btnSubmit{
+	width:360px;
+	height:40px;
+	line-height:40px;
+	margin:20px auto;
+	background:#42AD47;
+	border-radius:5px;
+	behavior: url(../js/PIE.htc);
+	text-align:center; 
+	cursor:pointer;
+}
+.toRegister{
+	color:#42AD47;
+	float:right;
+	font-size:14px;
+	margin-right:30px; 
+}
+

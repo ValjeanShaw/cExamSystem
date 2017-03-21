@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.SysUserMapper" >
+
+    <!--注册新的系统用户-->
+    <insert id="RegisterSysUser" parameterType="com.lucky.dao.SysUser">
+        insert into sysuser (id,sysUserName,sysUserPass,createMan,createDate) values (uuid(),#{sysUserName},#{sysUserPass},'shaw',now())
+    </insert>
+
+    <!--&lt;!&ndash;注册前查询是否已经注册过&ndash;&gt;-->
+    <!--<select id="SelectSysUser" parameterType="String" resultType="int">-->
+        <!--select count(*) num from sysuser where username = #{username}-->
+    <!--</select>-->
+
+    <!--登录验证-->
+    <!--<select id="LoginVali" parameterType="String" resultType="com.lucky.pojo.SysUser">-->
+        <!--select sysuserId,password from sysuser where username=#{username}-->
+    <!--</select>-->
+
+</mapper>
