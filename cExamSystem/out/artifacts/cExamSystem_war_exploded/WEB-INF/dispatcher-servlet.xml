@@ -10,12 +10,19 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- springmvc 注解驱动 -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 注解请求映射
+            默认是ISO-88859-1，避免乱码这里设置为UTF-8 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler />
     <!-- 扫描器 -->
     <context:component-scan base-package="com.lucky"/>
-    <context:component-scan base-package="com.lucky.mapper"/>
     <!-- 配置视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 前缀 -->
@@ -42,16 +49,16 @@
         </property>
     </bean>
 
-    <!--配置拦截器-->
-    <!--<mvc:interceptors>-->
-        <!--&lt;!&ndash; 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;-->
-        <!--<bean class="com.lucky.interceptors.LoginInterceptors"/>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/test/number.do"/>-->
-            <!--&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;-->
-            <!--<bean class="com.lucky.interceptors.LoginInterceptors"/>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+    <!--拦截器 -->
+    <mvc:interceptors>
+        <!--多个拦截器,顺序执行 -->
+        <!-- 登陆认证拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.lucky.interceptor.LoginJudge"></bean>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
 
     <!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

@@ -47,7 +47,7 @@ $(function(){
 			layer.load();
 			//ajax异步提交方式
 			var ajax= $.ajax({
-				url:'/AdminManage/RegisterIn.port',
+				url:'/Register/adminRegisterIn.port',
 				type:'post',
 				data:{
 					username:username,
@@ -58,10 +58,11 @@ $(function(){
 					if(data == "ok"){
 						setInterval(function(){
 							layer.closeAll('loading');
-							window.location.href="/AdminLogin/Login.port";
+							window.location.href="/AdminManage/AdminLogin.port";
 						},500);
 					}else{
 						layer.msg(data);
+                        layer.closeAll('loading');
 					}
 				},error:function(){
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.PermissionMapper" >
+
+    <!--认证登录之后将资源权限查询出来-->
+    <!--获取系统用户所拥有的菜单-->
+    <select id="selectUserMenu" parameterType="String" resultType="com.lucky.dao.Permission">
+        select id,permissionName from permission where type='menu' and id IN
+          (select permissionId from role_permission where roleId In
+            (select roleId from user_role where userId = #{sysUserId}))
+    </select>
+
+    <!--获取系统用户所拥有的资源-->
+    <select id="selectUserPermission" parameterType="com.lucky.dao.CommonDao" resultType="com.lucky.dao.Permission">
+        select id,permissionName,url from permission where type='permission'
+			AND parentid = #{parentId}
+            and id IN
+              (select permissionId from role_permission where roleId In
+                (select roleId from user_role where userId = #{id}));
+    </select>
+
+
+</mapper>

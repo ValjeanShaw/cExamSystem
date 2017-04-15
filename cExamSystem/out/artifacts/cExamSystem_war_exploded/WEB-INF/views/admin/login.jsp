@@ -22,6 +22,18 @@
     <script charset="utf-8" src="<%=request.getContextPath()%>/res/layer/layer.js"></script>
     <script charset="utf-8" src="<%=request.getContextPath()%>/res/js/admin/login_register.js"></script>
     <script>
+        //变换背景
+        $(document).ready(function(){
+            setInterval("changeBack()",5000);
+        })
+        function changeBack(){
+            if($(".sider img").attr('src')=='../../res/image/common/sau.jpg'){
+                $(".sider img").attr('src','../../res/image/common/sau2.jpg');
+            }else{
+                $(".sider img").attr('src','../../res/image/common/sau.jpg');
+            }
+
+        }
         function sub(){
             var username = document.login.username.value;
             var userpass = document.login.userpass.value;
@@ -36,7 +48,7 @@
                 layer.load();
                 //ajax异步提交
                 var ajax= $.ajax({
-                    url:'/AdminLogin/LoginIn.port',
+                    url:'/AdminManage/LoginIn.port',
                     type:'post',
                     data:{
                         username:username,
@@ -69,7 +81,10 @@
 
 </head>
 <body>
-<div class="sider"></div>
+    <div class="sider">
+        <img src="<%=request.getContextPath()%>/res/image/common/sau.jpg" alt=""/>
+        <div class="borad"></div>
+    </div>
     <div class="wrap">
         <div class="shade">
             <span>登录-Login</span>

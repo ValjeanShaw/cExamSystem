@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.TeacherMapper" >
+    <!--easyui界面用，查出所有的用户-->
+    <select id="selectAllTeacher" resultType="com.lucky.dao.Teacher">
+        select * from teacher order by profesRanks
+    </select>
+
+    <!--admin新建教师-->
+    <insert id="addTeacher" parameterType="com.lucky.dao.Teacher">
+        insert into teacher (id,teaName,teaPass,sex,profesRanks,telphone,email)
+          values (uuid(),#{teaName},#{teaPass},#{sex},#{profesRanks},#{telphone},#{email})
+    </insert>
+
+    <!--admin修改教师信息-->
+    <update id="editAdminTeacher" parameterType="com.lucky.dao.Teacher">
+        update teacher set
+			teaName = #{teaName},sex = #{sex},profesRanks = #{profesRanks},
+            telphone = #{telphone},email = #{email}
+		where id = #{id}
+    </update>
+
+    <!--admin删除教师信息-->
+    <delete id="deleteTeacher" parameterType="String">
+        delete from teacher where id=#{id}
+    </delete>
+
+</mapper>

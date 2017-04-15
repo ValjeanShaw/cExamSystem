@@ -7,14 +7,19 @@
         insert into sysuser (id,sysUserName,sysUserPass,createMan,createDate) values (uuid(),#{sysUserName},#{sysUserPass},'shaw',now())
     </insert>
 
-    <!--&lt;!&ndash;注册前查询是否已经注册过&ndash;&gt;-->
-    <!--<select id="SelectSysUser" parameterType="String" resultType="int">-->
-        <!--select count(*) num from sysuser where username = #{username}-->
-    <!--</select>-->
+    <!--注册前查询是否已经注册过-->
+    <select id="SelectSysUser" parameterType="String" resultType="int">
+        select count(*) from sysuser where sysUserName = #{sysUserName}
+    </select>
 
     <!--登录验证-->
-    <!--<select id="LoginVali" parameterType="String" resultType="com.lucky.pojo.SysUser">-->
-        <!--select sysuserId,password from sysuser where username=#{username}-->
-    <!--</select>-->
+    <select id="LoginVali" parameterType="String" resultType="com.lucky.dao.SysUser">
+        select id,sysUserPass from sysuser where sysUserName=#{sysUserName}
+    </select>
+
+    <!--修改管理员的密码-->
+    <update id="EditSysPass" parameterType="com.lucky.dao.SysUser">
+        update sysuser set sysUserPass =#{sysUserPass}  where sysUserName=#{sysUserName}
+    </update>
 
 </mapper>
