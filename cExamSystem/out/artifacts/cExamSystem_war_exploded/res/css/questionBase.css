@@ -1,0 +1,117 @@
+.fen{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	background:#ffffff;
+	border-bottom:solid #999999 1px;
+	text-align:center;
+	color:#333333;
+	font-size:24px;
+	margin-top:60px;
+}
+.content{
+	width:1000px;
+	margin:10px auto 30px;
+}
+.titlewrap{
+	background:#477C9C;
+	width:100%;
+	height:45px;
+	line-height:45px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.titlename1,.titlename2{
+	color:#cccccc;
+	font-size:24px;
+	cursor:pointer;
+	width:130px;
+	text-align:center;
+	
+	
+}
+.titlename1{
+	float:left;
+	border-top-left-radius: 15px;
+}
+.titlename2{
+	display:none;
+	float:right;
+	border-top-right-radius: 15px;
+}
+.typeon{
+	background:#003366;
+}
+.optionSpace{
+	border-left:1px #bbbbbb solid;
+	border-right:1px #bbbbbb solid;
+	border-bottom:1px #bbbbbb solid;
+	background:#ffffff;
+	padding:20px;
+	padding-bottom:50px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	position:relative;
+}
+.optionSpaceUl{
+	background:#eeeeee;
+	border:1px solid #bbbbbb;
+	padding:22px;
+}
+.spanulname{
+	font-size:22px;
+	color:#999999;
+	border-bottom:solid #999999 1px;
+}
+.spanulname span{
+	font-size:18px;
+}
+.optionSpaceUl li{
+	margin:15px 0;
+	font-weight:bold;
+	color:#222222;
+	width:360px;
+}
+.chapter{
+	margin-left:50px;
+}
+.numwrap{
+	float:right;
+}
+.btnAM{
+	width:20px;
+	height:20px;
+	cursor:pointer;
+}
+.queNum{
+	font-size:20px;
+	margin:0 6px;
+}
+.allNumWrap{
+	position:absolute;
+	top:80px;
+	right:150px;
+}
+.allNumName{
+	font-size:22px;
+	color:#999999;
+	border-bottom:solid #999999 1px;
+	font-family: "华文行楷";
+}
+.allNum{
+	font-size:100px;
+	font-family: "华文行楷";
+	margin-top:50px;
+	margin-left:20px;
+}
+.btnOK{
+	color:#ffffff;
+	background:#477C9C;
+	width:100px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	float:right;
+	cursor:pointer;
+	margin-top:5px;
+}

@@ -47,11 +47,10 @@ public class AdminManage {
             session.setAttribute("AdminMenu",activeUser.getMenus());
             session.setAttribute("AdminPermission",activeUser.getPermissions());
             session.setAttribute("AdminJsonMenu",activeUser.getMenuJson());
+
             return "ok";
         }else{
             return "用户名或密码不正确";
         }
     }
-
-
 }

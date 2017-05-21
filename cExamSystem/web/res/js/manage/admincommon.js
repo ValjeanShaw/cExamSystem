@@ -49,9 +49,9 @@ function Delete(){
                     timeout: 3000,
                     success: function (data) {
                         if(data == "ok"){
-                            layer.msg("删除成功");
+                            ShowMsg("删除成功");
                         }else{
-                            layer.msg("删除失败，请联系管理员");
+                            ShowMsg("删除失败，请联系管理员");
                         }
                         layer.closeAll('loading')
                     }, error: function () {
@@ -59,7 +59,7 @@ function Delete(){
                     }, complete: function (XMLHttpRequest, status) {
                         if (status == 'timeout') {
                             ajax.abort();
-                            layer.msg("请求超时，请重试！");
+                            ShowMsg("请求超时，请重试！");
                         }
                         //关闭对话框，重新加载界面
                         $('#dlg').dialog('close');

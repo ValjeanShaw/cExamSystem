@@ -20,4 +20,7 @@ public interface TeacherService {
 
     //后台修改教师信息
     boolean deleteTeacher(String id) throws Exception;
+
+    //前台验证教师登录
+    String teaFontLoginVali(String username,String userpass);
 }

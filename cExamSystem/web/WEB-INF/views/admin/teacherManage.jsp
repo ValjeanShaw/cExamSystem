@@ -51,7 +51,7 @@
     <thead>
     <tr>
         <%-- 3、第三处修改，修改此处的列名称，与数据库一致，显示有必要的（跨行的字符串不要显示）--%>
-        <th field="id" width="100px" hidden>ID</th>
+        <th field="id" width="100px" >教师编号</th>
         <th field="teaName" width="100px">教师名</th>
         <th field="sex" width="100px">性别</th>
         <th field="profesRanks" width="100px">教师职称</th>
@@ -102,12 +102,12 @@
         </div>
         <div style="margin-bottom:10px;">
             <span class="word"><span style="letter-spacing: 10px;">电话号</span>码:</span>
-            <input class="easyui-numberbox" data-options="required:true,min:0,precision:0"
+            <input class="easyui-numberbox" data-options="min:0,precision:0"
                    name="telphone" id="telphone" style="width:400px;height:32px " >
         </div>
         <div style="margin-bottom:10px;">
             <span class="word"><span style="letter-spacing: 10px;">电子邮</span>箱:</span>
-            <input class="easyui-textbox" data-options="required:true,validType:'length[1,50]'"
+            <input class="easyui-textbox" data-options="validType:'length[1,50]'"
                    name="email" id="email" style="width:400px;height:32px" >
         </div>
     </form>

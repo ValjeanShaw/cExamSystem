@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.ChooseMapper" >
+
+    <!--查询所有的选择题-->
+    <select id="selectAllChoose" resultType="com.lucky.dao.ChooseQuestion">
+        select * from choosequestion order by chapter,createDate
+    </select>
+
+    <!--添加一个新的题-->
+    <insert id="addNewChoose">
+        insert into choosequestion (id,questionText,questionPic,chooseA,chooseB,chooseC,chooseD,answer,qExplain,chapter,finishNum,rightNum,zanNum)
+          values (uuid(),#{0},#{1},#{2},#{3},#{4},#{5},#{6},#{7},#{8},0,0,0)
+    </insert>
+
+    <!--修改一个题-->
+    <update id="editNewChoose">
+        update choosequestion set questionText=#{1},questionPic=#{2},chooseA=#{3},
+                            chooseB=#{4},chooseC=#{5},chooseD=#{6},
+                            answer=#{7},qExplain=#{8},chapter=#{9}
+                          where id = #{0}
+    </update>
+
+    <!--删除一个题目-->
+    <delete id="deleteChooseById" parameterType="String">
+        delete from choosequestion where id = #{id}
+    </delete>
+
+    <!--随机出1个题   章节：按照要求-->
+    <select id="selRandOneChap" resultType="com.lucky.dao.ChooseQuestion" parameterType="String">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = #{value}
+        order by rand() limit 1
+    </select>
+
+    <!--随机出1个题   章节：编程基础-->
+    <select id="selRandOneChap_1" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+            where chapter = "编程基础"
+            order by rand() limit 1
+    </select>
+    <!--随机出n个题   章节：编程基础-->
+    <select id="selRandNChap_1" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+              where chapter = "编程基础"
+              order by rand() limit #{0,jdbcType=INTEGER}
+    </select>
+
+    <!--随机出1个题   章节：逻辑编程-->
+    <select id="selRandOneChap_3" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+            where chapter = "逻辑编程"
+            order by rand() limit 1
+    </select>
+    <!--随机出n个题   章节：逻辑编程-->
+    <select id="selRandNChap_3" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+            where chapter = "逻辑编程"
+            order by rand() limit #{0,jdbcType=INTEGER}
+    </select>
+
+    <!--随机出1个题   章节：数组-->
+    <select id="selRandOneChap_6" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "数组"
+        order by rand() limit 1
+    </select>
+    <!--随机出n个题   章节：逻辑编程-->
+    <select id="selRandNChap_6" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+            where chapter = "数组"
+            order by rand() limit #{0,jdbcType=INTEGER}
+    </select>
+
+    <!--随机出1个题   章节：函数-->
+    <select id="selRandOneChap_7" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "函数"
+        order by rand() limit 1
+    </select>
+    <!--随机出n个题   章节：函数-->
+    <select id="selRandNChap_7" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "函数"
+        order by rand() limit #{0,jdbcType=INTEGER}
+    </select>
+
+    <!--随机出1个题   章节：指针-->
+    <select id="selRandOneChap_8" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "指针"
+        order by rand() limit 1
+    </select>
+    <!--随机出n个题   章节：函数-->
+    <select id="selRandNChap_8" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "指针"
+        order by rand() limit #{0,jdbcType=INTEGER}
+    </select>
+
+    <!--随机出1个题   章节：结构体-->
+    <select id="selRandOneChap_9" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "结构体"
+        order by rand() limit 1
+    </select>
+    <!--随机出n个题   章节：结构体-->
+    <select id="selRandNChap_9" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "结构体"
+        order by rand() limit #{0,jdbcType=INTEGER}
+    </select>
+
+    <!--随机出1个题   章节：文件-->
+    <select id="selRandOneChap_10" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "文件"
+        order by rand() limit 1
+    </select>
+    <!--随机出n个题   章节：结构体-->
+    <select id="selRandNChap_10" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT * FROM examsystem.choosequestion
+        where chapter = "文件"
+        order by rand() limit #{0,jdbcType=INTEGER}
+    </select>
+
+
+    <!--通过试卷id查询题目-->
+    <select id="selQuesById" parameterType="String" resultType="com.lucky.dao.ChooseQuestion">
+        SELECT
+            questionId as id,
+            questionText,
+            questionPic,
+            chooseA,
+            chooseB,
+            chooseC,
+            chooseD,
+            answer,
+            qExplain,
+            chapter
+        FROM
+            exampaper_question,
+            choosequestion
+        WHERE
+            questionId = choosequestion.id
+                AND exampaperId = #{exampaperId}
+    </select>
+
+    <!--根据id将完成数+1-->
+    <update id="plusFinishNumById" parameterType="String">
+        update choosequestion set finishNum = (finishNum+1) where id = #{id}
+    </update>
+
+    <!--根据id将做对数+1-->
+    <update id="plusRightNumById" parameterType="String">
+        update choosequestion set rightNum = (rightNum+1) where id = #{id}
+    </update>
+
+    <!--根据id将点赞次数+1-->
+    <update id="plusZanNumById" parameterType="String">
+        update choosequestion set zanNum = (zanNum+1) where id = #{id}
+    </update>
+
+    <!--查询排行榜   章节做题总数榜-->
+    <select id="topAllChapterNum" resultType="com.lucky.dao.TopChapterNum">
+        select chapter,sum(finishNum) num from choosequestion group by chapter order by num desc
+    </select>
+
+    <!--查询排行榜   计算章节正确率-->
+    <select id="topRightChapterNum" resultType="com.lucky.dao.TopChapterNumRight">
+        select chapter,ROUND(sum(rightNum)/sum(finishNum),4) as num from choosequestion
+          group by chapter order by num desc;
+    </select>
+
+
+</mapper>

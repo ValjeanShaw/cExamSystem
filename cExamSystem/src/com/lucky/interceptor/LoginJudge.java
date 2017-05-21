@@ -21,10 +21,19 @@ public class LoginJudge implements HandlerInterceptor {
         if(uri.contains("Login")||uri.contains("Register")){
             return true;
         }
+
+//        return true;
+
         // 第一层拦截  只允许通过带font 和 admin的请求，admin登入必须登录
         if(uri.contains("font")||uri.contains("Font")){
-            //后台应用判断登录
-            return true;
+            //前台应用判断登录
+            if((session.getAttribute("fontUserIdStu")!=null)||(session.getAttribute("fontUserIdTea")!=null)){
+                return true;
+            }else{
+                //用户没有登录跳转到登录页面
+                httpServletRequest.getRequestDispatcher("/FontLogin/LoginPage.port").forward(httpServletRequest, httpServletResponse);
+                return false;
+            }
         }else{
             if(uri.contains("admin")||uri.contains("Admin")){
                 if(session.getAttribute("AdminLoginUsername")!=null){

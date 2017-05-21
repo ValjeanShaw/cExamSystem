@@ -1,0 +1,96 @@
+.fen{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	background:#ffffff;
+	border-bottom:solid #999999 1px;
+	text-align:center;
+	color:#333333;
+	font-size:24px;
+	margin-top:60px;
+}
+.content{
+	width:1000px;
+	margin:10px auto 30px;
+	border:1px solid #999999;
+}
+.titlewrap{
+	background:#477C9C;
+	width:100%;
+	height:45px;
+	line-height:45px;
+}
+.btnback,.btnreload{
+	width:30px;
+	height:30px;
+	cursor:pointer;
+	margin-top:5px;
+}
+.btnback{
+	float:left;
+	margin-left:50px;
+}
+.btnreload{
+	float:right;
+	margin-right:50px;
+}
+.paperlist{
+	background:#ffffff;
+	padding:20px;
+}
+.listul{
+	
+}
+.listunit{
+	background:#eeeeee;
+	margin-top:3px;
+	margin-bottom:20px;
+	border-radius:10px;
+	padding:30px;
+}
+.clickwrap{
+	cursor:pointer;
+	width:700px;
+	overflow:hidden;
+}
+.clickwrap:hover{
+	color:#477C9C;
+}
+.paperlogo{
+	width:66px;
+	float:left;
+}
+.paperTitle{
+	float:left;
+	margin-top:10px;
+	margin-left:25px;
+	font-size:20px;
+	width:600px;
+}
+.createDate{
+	clear:left;
+	float:left;
+	margin-left:100px;
+}
+.createMan{
+	float:left;
+	margin-left:100px;
+}
+.btnDel{
+	float:right;
+	cursor:pointer;
+	width:46px;
+	height:46px;
+	margin-top:-50px;
+}
+.morewrap{
+	color:#555555;
+	float:right;
+	margin-top:-10px;
+	margin-right:25px;
+	cursor:pointer;
+}
+.morewrap img{
+	height:20px;
+	width:20px;
+}

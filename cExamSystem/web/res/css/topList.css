@@ -1,0 +1,71 @@
+.fen{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	background:#ffffff;
+	border-bottom:solid #999999 1px;
+	text-align:center;
+	color:#333333;
+	font-size:24px;
+	min-width:1000px;
+}
+.content{
+	width:1000px;
+	min-height:500px;
+	margin:10px auto 30px;
+	position:relative;
+}
+.quesTop{
+	background:#bbbbbb;
+	padding:20px;
+	width:960px;
+	overflow:hidden;
+	border-radius:15px;
+	margin-top:30px;
+	border:#aaaaaa solid 1px;
+}
+.studentTop{
+	background:#cccccc;
+	padding:20px;
+	width:960px;
+	overflow:hidden;
+	border-radius:15px;
+	margin-top:20px;
+	border:#aaaaaa solid 1px;
+}
+.title{
+	color:#ffffff;
+	font-weight:bold;
+	background:#00BC9B;
+	width:200px;
+	height:60px;
+	line-height:60px;
+	text-align:center;
+}
+.allNum,.rightNum,.allNumStu,.rightNumStu{
+	background:#ffffff;
+	width:300px;
+	float:left;
+	margin-left:120px;
+	border:solid 1px #888888;
+}
+.allNumLi,.rightNumLi,.allNumLiStu,.rightNumLiStu{
+	border-bottom:#eeeeee solid 1px;
+	padding-bottom:2px;
+	text-align:center;
+	margin:5px 0;
+	color:#7AB900;
+}
+.rightNumLi{
+	color:#F65200;
+}
+.allNumLiStu{
+	color:#B848FF;
+}
+.rightNumLiStu{
+	color:#FF2525;
+}
+.detailData{
+	display:inline-block;
+	margin-left:30px;
+}

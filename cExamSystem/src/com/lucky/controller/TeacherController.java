@@ -1,17 +1,13 @@
 package com.lucky.controller;
 
 import com.lucky.dao.EUDateGridResult;
-import com.lucky.service.ItemsService;
 import com.lucky.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by 风萧萧兮 on 2017/4/14.
@@ -19,7 +15,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping(value = "/Teacher")
 public class TeacherController {
-
 
     @Autowired
     private TeacherService teacherService;
@@ -112,6 +107,4 @@ public class TeacherController {
             return "error";
         }
     }
-
-
 }

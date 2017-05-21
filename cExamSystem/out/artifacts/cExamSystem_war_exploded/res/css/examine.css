@@ -1,0 +1,164 @@
+.fen{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	background:#ffffff;
+	border-bottom:solid #999999 1px;
+	text-align:center;
+	color:#333333;
+	font-size:24px;
+	margin-top:60px;
+}
+.content{
+	width:1000px;
+	min-height:550px;
+	margin:10px auto 30px;
+	position:relative;
+}
+.titlewrap{
+	background:#477C9C;
+	width:100%;
+	height:45px;
+	line-height:45px;
+	border-radius: 15px;
+	position:relative;
+}
+.paperTitle{
+	color:#eeeeee;
+	font-size:20px;
+	display:block;
+	margin-left:70px;
+}
+.page{
+	width:120px;
+	height:45px;
+	line-height:45px;
+	position:absolute;
+	top:0px;
+	right:50px;
+	color:#eeeeee;
+}
+.flodwrap1{
+	width:1000px;
+	height:450px;
+	background:#B0C0C9;
+	position:absolute;
+	top:60px;
+	left:0px;
+}
+.flodwrap2{
+	width:1000px;
+	height:450px;
+	background:#7B9EB3;
+	position:absolute;
+	top:70px;
+	left:10px;
+}
+.flodwrap3{
+	width:1000px;
+	height:450px;
+	background:#5786A3;
+	position:absolute;
+	top:80px;
+	left:20px;
+}
+.quesUl{
+	width:980px;
+	min-height:450px;
+	background:#cccccc;
+	position:absolute;
+	top:90px;
+	left:30px;
+	border-left:10px solid #477C9C;
+	border-top:10px solid #477C9C;
+}
+.quesLi{
+	padding:15px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.quesText{
+	font-size:18px;
+	margin-bottom:10px;
+}
+.ultitle{
+	font-weight:bold;
+	color:#477C9C;
+}
+.choosewrap li{
+	margin:3px 0;
+}
+.choosewrap{
+	margin-bottom:10px;
+}
+.mychoosewrap{
+	margin-top:20px;
+	margin-left:100px;
+}
+.preChoose{
+	display:inline-block;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	background:#aaaaaa;
+	cursor:pointer;
+	margin:0 20px;
+}
+.chooseOn{
+	background:#003366;
+	color:#eeeeee;
+}
+.btnwrap{
+	position:absolute;
+	top:330px;
+	right:50px;
+}
+.btnwrap2{
+	position:absolute;
+	top:370px;
+	right:50px;
+}
+.last,.next,.submit{
+	display:inline-block;
+	cursor:pointer;
+}
+.last img,.next img,.submit img{
+	width:30px;
+	margin-left:30px;
+}
+.last div,.next div,.submit div{
+	display:inline-block;
+	margin-left:18px;
+}
+.trueExplainwrap{
+	margin-top:10px;
+}
+.trueAnwerTitle{
+	display:inline-block;
+	color:#FF2525;
+	margin-left:50px;
+}
+.trueAnwer{
+	display:inline-block;
+	color:#FF2525;
+}
+.trueExplainwrap{
+	color:#42AD47;
+	font-size:14px;
+}
+.totalRight{
+	width: 120px;
+	height: 45px;
+	line-height: 45px;
+	position: absolute;
+	top: 0px;
+	left: 70%;
+	color: #FF2525;
+}
+.myChooseAnswer{
+	font-weight:bold;
+	color:#477C9C;
+}

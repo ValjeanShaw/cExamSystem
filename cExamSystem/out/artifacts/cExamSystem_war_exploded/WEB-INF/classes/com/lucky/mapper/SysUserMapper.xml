@@ -22,4 +22,6 @@
         update sysuser set sysUserPass =#{sysUserPass}  where sysUserName=#{sysUserName}
     </update>
 
+
+
 </mapper>

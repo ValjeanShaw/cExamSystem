@@ -26,7 +26,7 @@ public class TeacherServiceImpl implements TeacherService {
      * easyui的传参数分页查询item列表
      *
      * Easyui中datagrid控件要求的数据格式为：
-     *{total:”2”,rows:[{“id”:”1”,”name”,”张三”},{“id”:”2”,”name”,”李四”}]}
+     *{total:”2”,rows:[{“id”:”1”,”name”:”张三”},{“id”:”2”,”name”:”李四”}]}
      *
      * @param page
      * @param rows
@@ -34,6 +34,7 @@ public class TeacherServiceImpl implements TeacherService {
      */
     @Override
     public EUDateGridResult getTeachersList(int page, int rows) {
+
         //分页处理
         PageHelper.startPage(page,rows);
         List<Teacher> list = teacherMapper.selectAllTeacher();
@@ -120,4 +121,31 @@ public class TeacherServiceImpl implements TeacherService {
         }
         return false;
     }
+
+    /**
+     * 教师登录方法
+     * @param username
+     * @param userpass
+     * @return
+     */
+    @Override
+    public String teaFontLoginVali(String username, String userpass) {
+        Teacher teacher = teacherMapper.fontValiTea(username);
+        String dbpass = teacher.getTeaPass();
+        //加密匹配
+        try{
+            String key = "A1B2C3D4E5F60708";         //解密的密钥，要和加密的一样
+            //两次加密   des加密和md5加密
+            userpass = PwdUtil.getPassMD5(userpass);
+            userpass = DESUtil.encrypt(userpass,key);
+
+            if(userpass.equals(dbpass)){
+                return teacher.getTeaName();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

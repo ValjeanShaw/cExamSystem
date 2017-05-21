@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.StuMessCMapper" >
+
+    <!--更新总做题数-->
+    <update id="plusFinishNumByNum" parameterType="String">
+        update stu_mess_c set quesFinishNum = (quesFinishNum+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新总做对题数-->
+    <update id="plusRightNumByNum" parameterType="String">
+        update stu_mess_c set quesRightNum = (quesRightNum+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_1_2数-->
+    <update id="plusChapter_1_2ByNum" parameterType="String">
+        update stu_mess_c set chapter_1_2 = (chapter_1_2+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_1_2做对数-->
+    <update id="plusChapter_1_2_RByNum" parameterType="String">
+        update stu_mess_c set chapter_1_2_R = (chapter_1_2_R+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_3_4_5数-->
+    <update id="plusChapter_3_4_5ByNum" parameterType="String">
+        update stu_mess_c set chapter_3_4_5 = (chapter_3_4_5+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_3_4_5做对数-->
+    <update id="plusChapter_3_4_5_RByNum" parameterType="String">
+        update stu_mess_c set chapter_3_4_5_R = (chapter_3_4_5_R+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_6数-->
+    <update id="plusChapter_6ByNum" parameterType="String">
+        update stu_mess_c set chapter_6 = (chapter_6+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_6_R数-->
+    <update id="plusChapter_6_RByNum" parameterType="String">
+        update stu_mess_c set chapter_6_R = (chapter_6_R+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_7数-->
+    <update id="plusChapter_7ByNum" parameterType="String">
+        update stu_mess_c set chapter_7 = (chapter_7+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_7_R数-->
+    <update id="plusChapter_7_RByNum" parameterType="String">
+        update stu_mess_c set chapter_7_R = (chapter_7_R+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_8数-->
+    <update id="plusChapter_8ByNum" parameterType="String">
+        update stu_mess_c set chapter_8 = (chapter_8+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_8_R数-->
+    <update id="plusChapter_8_RByNum" parameterType="String">
+        update stu_mess_c set chapter_8_R = (chapter_8_R+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_9数-->
+    <update id="plusChapter_9ByNum" parameterType="String">
+        update stu_mess_c set chapter_9 = (chapter_9+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_9_R数-->
+    <update id="plusChapter_9_RByNum" parameterType="String">
+        update stu_mess_c set chapter_9_R = (chapter_9_R+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_10数-->
+    <update id="plusChapter_10ByNum" parameterType="String">
+        update stu_mess_c set chapter_10 = (chapter_10+1) where stuNum = #{stuNum}
+    </update>
+    <!--更新chapter_10_R数-->
+    <update id="plusChapter_10_RByNum" parameterType="String">
+        update stu_mess_c set chapter_10_R = (chapter_10_R+1) where stuNum = #{stuNum}
+    </update>
+    <!--新建信息表-->
+    <insert id="addNewMessC" parameterType="String">
+        insert into stu_mess_c values (uuid(),#{stuNum},0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+    </insert>
+
+    <!--按照学号将具体的做题数量查询-->
+    <select id="selChapterNumByNum" parameterType="String" resultType="com.lucky.dao.StuMess">
+        SELECT chapter_1_2,chapter_3_4_5,chapter_6,chapter_7,chapter_8,chapter_9,chapter_10 FROM stu_mess_c
+          where stuNum = #{stuNum}
+    </select>
+
+    <!--查询答对数和总数-->
+    <select id="selAllNumByNum" parameterType="String" resultType="com.lucky.dao.StuMess">
+        SELECT
+            chapter_1_2,chapter_1_2_R,
+            chapter_3_4_5,chapter_3_4_5_R,
+            chapter_6,chapter_6_R,
+            chapter_7,chapter_7_R,
+            chapter_8,chapter_8_R,
+            chapter_9,chapter_9_R,
+            chapter_10,chapter_10_R
+        FROM
+            stu_mess_c
+        WHERE
+            stuNum = #{stuNum}
+    </select>
+
+    <!--查询学生做题总数top-->
+    <select id="topAllStudentNum" resultType="com.lucky.dao.TopStudentNum">
+        select stuName,quesFinishNum as num from student,stu_mess_c
+          where student.stuNum = stu_mess_c.stuNum
+            group by stu_mess_c.stuNum
+              order by num desc
+        limit 0,20
+    </select>
+
+    <!--查询学生做题成功率-->
+    <select id="topRightStudentNum" resultType="com.lucky.dao.TopStudentNumRight">
+        select stuName,round(quesRightNum/quesFinishNum,4) num from student,stu_mess_c
+          where student.stuNum = stu_mess_c.stuNum
+            group by stu_mess_c.stuNum
+              order by quesFinishNum desc
+        limit 0,20
+    </select>
+
+</mapper>

@@ -1,0 +1,65 @@
+.fen{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	background:#ffffff;
+	border-bottom:solid #999999 1px;
+	text-align:center;
+	color:#333333;
+	font-size:24px;
+	min-width:1000px;
+	margin-top:60px;
+}
+.content{
+	width:1000px;
+	margin:10px auto 30px;
+	position:relative;
+	background:#ffffff;
+	border-radius:15px;
+}
+.firstMess{
+	width:1000px;
+	height:100px;
+	overflow:hidden;
+	margin: 10px auto;
+	background:#477C9C;
+	padding-top:10px;
+	border-top-left-radius: 15px;
+	border-top-right-radius:15px;
+}
+.type_one{
+	width:330px;
+	float:left;
+	color:#eeeeee;
+	font-weight:bold;
+	margin-left:2px;
+	margin-top:15px;
+}
+.borderLeft{
+	margin-left:100px;
+}
+.sizetype{
+	width:150px;
+}
+.secondMess{
+	background:#cccccc;
+	width:1000px;
+	margin-top:30px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius:15px;
+}
+.Formtitle{
+	color:#477C9C;
+	font-size:24px;
+	font-weight:bold;
+	margin:20px;
+}
+.numForm,.pieForm{
+	width:700px;
+	height:450px;
+	margin-left:100px;
+}
+.numData,.pieData{
+	width:700px;
+	height:450px;
+}

@@ -3,13 +3,13 @@
 <mapper namespace="com.lucky.mapper.TeacherMapper" >
     <!--easyui界面用，查出所有的用户-->
     <select id="selectAllTeacher" resultType="com.lucky.dao.Teacher">
-        select * from teacher order by profesRanks
+        select * from teacher order by id
     </select>
 
     <!--admin新建教师-->
     <insert id="addTeacher" parameterType="com.lucky.dao.Teacher">
-        insert into teacher (id,teaName,teaPass,sex,profesRanks,telphone,email)
-          values (uuid(),#{teaName},#{teaPass},#{sex},#{profesRanks},#{telphone},#{email})
+        insert into teacher (teaName,teaPass,sex,profesRanks,telphone,email)
+          values (#{teaName},#{teaPass},#{sex},#{profesRanks},#{telphone},#{email})
     </insert>
 
     <!--admin修改教师信息-->
@@ -24,5 +24,9 @@
     <delete id="deleteTeacher" parameterType="String">
         delete from teacher where id=#{id}
     </delete>
+
+    <select id="fontValiTea" resultType="com.lucky.dao.Teacher">
+        select teaName,teaPass from  teacher where id = #{0}
+    </select>
 
 </mapper>

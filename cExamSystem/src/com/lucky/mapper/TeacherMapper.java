@@ -16,5 +16,7 @@ public interface TeacherMapper {
     int editAdminTeacher(Teacher teacher);
     //后台删除教师信息
     int deleteTeacher(String id);
+    //前台验证教师登录
+    Teacher fontValiTea(String id);
 
 }

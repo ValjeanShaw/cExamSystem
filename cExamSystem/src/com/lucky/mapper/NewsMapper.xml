@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.NewsMapper" >
+
+    <!--查询当前页总数量-->
+    <select id="seltotalNum" resultType="Integer">
+        select count(*) total from
+          (select * from news order by createDate desc ) tmp_count
+    </select>
+
+    <!--查询所有的新闻通知，按照时间倒序排序-->
+    <select id="selectAllNewsAdmin" resultType="com.lucky.dao.News">
+        select id,newsTitle,newsText,createMan,FROM_UNIXTIME(UNIX_TIMESTAMP(createDate),'%Y-%m-%d %H:%i') as createDate from news
+            order by createDate desc
+              limit #{0,jdbcType=INTEGER} , #{1,jdbcType=INTEGER}
+    </select>
+
+    <!--添加一个新闻通知   parameterType="com.lucky.dao.News"-->
+    <insert id="addNews" >
+        insert into news (id,newsTitle,newsText,createMan,createDate) values
+        (uuid(),#{0},#{1},#{2},now())
+    </insert>
+
+    <!--修改一个新闻通知-->
+    <update id="editNews">
+        update news set newsTitle = #{1},
+                        newsText = #{2},
+                        createMan = #{3},
+                        createDate = now()
+                        where id = #{0}
+    </update>
+
+    <!--删除一条新闻-->
+    <delete id="deleteNews">
+        delete from news where id = #{0}
+    </delete>
+
+    <!--前端页面加载新闻-->
+    <select id="fontLoadNews" resultType="com.lucky.dao.News">
+        SELECT
+            newsTitle,
+            newsText,
+            createMan,
+            FROM_UNIXTIME(UNIX_TIMESTAMP(createDate), '%m-%d %H:%i') AS createDate
+        FROM
+            examsystem.news
+        ORDER BY createDate desc
+        LIMIT #{0,jdbcType=INTEGER} , #{1,jdbcType=INTEGER}
+    </select>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.StudentMapper" >
+
+    <!--查询所有的学生,  学院-年级-班级-->
+    <select id="selectAllStudent" resultType="com.lucky.dao.Student">
+        select * from student order by college,grade,classNum
+    </select>
+
+    <select id="LoginVali" parameterType="String" resultType="String">
+        select stuPass from student where stuNum = #{stuNum}
+    </select>
+    <!--根据stunum查询学生信息-->
+    <select id="selStuByNum" parameterType="String" resultType="com.lucky.dao.Student">
+        select * from student where stuNum = #{stuNum}
+    </select>
+
+    <select id="judgeStuNumUnique" parameterType="String" resultType="Integer">
+        select count(*) from student where stuNum = #{stuNum}
+    </select>
+
+    <!--注册用户-->
+    <insert id="RegisterStu" parameterType="com.lucky.dao.Student">
+        insert into student (stuNum,stuName,stuPass,sex,college,grade,classNum)
+        values(#{stuNum},#{stuName},#{stuPass},#{sex},#{college},#{grade},#{classNum})
+    </insert>
+
+</mapper>

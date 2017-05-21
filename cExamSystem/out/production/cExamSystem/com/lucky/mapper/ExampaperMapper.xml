@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lucky.mapper.ExampaperMapper" >
+
+    <!--创建试卷-->
+    <insert id="createNewPaper" parameterType="com.lucky.dao.Exampaper">
+        insert into exampaper (id,exampaperTitle,createDate,createMan)
+          value(#{0},#{1},now(),#{2})
+    </insert>
+
+    <!--将试题批量插入-->
+    <insert id ="inQuesToPaper" >
+        insert into exampaper_question (id,exampaperId,questionId)
+	      values(uuid(),#{0},#{1})
+    </insert >
+
+    <!--加载部分试卷-->
+    <select id="fontLoadpapers" resultType="com.lucky.dao.Exampaper">
+        SELECT
+            id,
+            exampaperTitle,
+            FROM_UNIXTIME(UNIX_TIMESTAMP(createDate),
+                    '%m-%d %H:%i') AS createDate,
+            createMan
+        FROM
+            examsystem.exampaper
+            ORDER BY createDate desc
+                LIMIT #{0,jdbcType=INTEGER} , #{1,jdbcType=INTEGER}
+    </select>
+
+    <!--根据id删除试卷-->
+    <delete id="delPaperById" parameterType="String">
+        delete from exampaper where id = #{id}
+    </delete>
+
+    <!--根据id查询出试卷名字-->
+    <select id="selExamTitleById" parameterType="String" resultType="String">
+        SELECT exampaperTitle FROM exampaper where id = #{paperId}
+    </select>
+
+
+</mapper>
